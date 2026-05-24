@@ -79,3 +79,28 @@ def quartiles(data):
 
 #outliers = [x for x in data if x< lower_fence or x>upper_fence ]
 
+
+def find_covariance(x,y):
+    mean_x = find_mean(x)
+    mean_y = find_mean(y)
+    total = 0
+    for i in range(len(x)):
+        total += (x[i]-mean_x)*(y[i]-mean_y)
+    cov = total/(len(x)-1)
+    return cov
+
+
+def correlation(x,y):
+    mean_x = find_mean(x)
+    mean_y = find_mean(y)
+    total = 0
+    for i in range(len(x)):
+        total += (x[i]-mean_x)*(y[i]-mean_y)
+    cov = total/(len(x)-1)
+    var_x = find_variance(x)
+    var_y = find_variance(y)
+    corr = cov/(var_x * var_y)
+    return corr
+
+
+
